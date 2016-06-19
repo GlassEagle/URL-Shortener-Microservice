@@ -3,13 +3,53 @@
 <html>
 
 	<head>
-		<title>URL shortener micro service</title>
+		<title>URL Shortener Microservice</title>
 		
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	</head>
 
 	<body>
-		
+		<div class="container">
+			<header>
+				<h1>URL Shortener Microservice</h1>
+			</header>
+			<section class="user-stores">
+				<blockquote>
+					<h3>User Stories:</h3>
+					<ol>
+						
+						<li>I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.</li>
+						<li>If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.</li>
+					</ol>
+				</blockquote>
+			</section>
+			<section class="example-creation-usage">
+				<h3>Example creation usage:</h3>
+				<div>
+					<code>https://url-shortener-microservice-glasseagle.c9users.io/new/https://www.google.com</code>
+					<br>
+					<code>https://url-shortener-microservice-glasseagle.c9users.io/new/http://foo.com:80</code>
+				</div>
+			</section>
+			<section class="example-creation-output">
+				<h3>Example creation output:</h3>
+				<div>
+					<code>{ "original_url":"http://foo.com:80", "short_url":"https://url-shortener-microservice-glasseagle.c9users.io/8170" }</code>
+				</div>
+			</section>
+			<section class="usage">
+				<h3>Usage:</h3>
+				<div>
+					<code>https://url-shortener-microservice-glasseagle.c9users.io/2871</code>
+				</div>
+			</section>
+			<section class="will-redirect-to">
+				<h3>Will redirect to:</h3>
+				<div>
+					<code>https://www.google.com/</code>
+				</div>
+			</section>
+		</div>
 	</body>
 
 </html>
