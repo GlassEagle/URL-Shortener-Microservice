@@ -6,7 +6,7 @@ var url = require('url');
 
 var shortURL = new Schema({
     original_url: {type: String, validate: [validateOriginalURL, "Wrong url format, make sure you have a valid protocol and real site."]},
-    short_url: Number
+    short_url: String
 });
 
 function validateOriginalURL(val){
