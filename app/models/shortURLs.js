@@ -10,6 +10,7 @@ var shortURL = new Schema({
 });
 
 function validateOriginalURL(val){
+    //url format good if hostname is defined
     return url.parse(val).hostname;
 }
 
