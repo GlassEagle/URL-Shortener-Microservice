@@ -5,10 +5,24 @@ var bling = require('bling-hashes');
 
 function newURLHandler (req, res) {
 	
-	var djbHash = bling.djb(req.params[0]); //djb hash
+	
+	var url_id = djbHash(req.params[0]);
+	
+	var shortURL = new  ShortURLs({original_url: req.params[0], short_url: url_id});
+	
+	shortURL.save(function(err, product){
+		if(err)
+			return res.json({"error: ": err.toString()});
+		
+		res.json(product);
+	});
+}
+
+function djbHash(str){
+	var hash = bling.djb(); //djb hash
 	var arr = [];
 	var char;
-	var q = djbHash;
+	var q = hash;
 	var r;
 	
 	//change the number djbHash to alphanumeric numbering (62 characers)
@@ -22,16 +36,8 @@ function newURLHandler (req, res) {
 				
 		arr.unshift(char); //add char to the front
 	}
-	var url_id = arr.join(""); //join array of characters into a string
 	
-	var shortURL = new  ShortURLs({original_url: req.params[0], short_url: url_id});
-	
-	shortURL.save(function(err, product){
-		if(err)
-			return res.json({"error: ": err.toString()});
-		
-		res.json(product);
-	});
+	return arr.join(""); //join array of characters into a string
 }
 
 module.exports = newURLHandler;
