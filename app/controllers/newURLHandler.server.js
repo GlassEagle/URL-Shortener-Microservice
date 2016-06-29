@@ -19,7 +19,7 @@ function newURLHandler (req, res) {
 }
 
 function djbHash(str){
-	var hash = bling.djb(); //djb hash
+	var hash = bling.djb(str); //djb hash
 	var arr = [];
 	var char;
 	var q = hash;
