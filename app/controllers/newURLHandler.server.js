@@ -10,7 +10,7 @@ function newURLHandler (req, res) {
 	ShortURLs.findOneAndUpdate(
 		{short_url: url_id},
 		{original_url: req.params[0], short_url: url_id},
-		{"new": true, upsert: true, runValidators: true},
+		{fields: "original_url short_url -_id", "new": true, upsert: true, runValidators: true},
 		function(err, doc){
 			if (err)
 				return res.json({"error": err.toString()});
