@@ -5,11 +5,12 @@ var bling = require('bling-hashes');
 
 function newURLHandler (req, res) {
 	
-	var url_id = djbHash(req.params[0]);
+	var url = req.url.replace("/new/", "");
+	var url_id = djbHash(url);
 	
 	ShortURLs.findOneAndUpdate(
 		{short_url: url_id},
-		{original_url: req.params[0], short_url: url_id},
+		{original_url: url, short_url: url_id},
 		{fields: "original_url short_url -_id", "new": true, upsert: true, runValidators: true},
 		function(err, doc){
 			if (err)
