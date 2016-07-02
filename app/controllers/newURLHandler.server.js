@@ -7,10 +7,11 @@ function newURLHandler (req, res) {
 	
 	var url = req.url.replace("/new/", "");
 	var url_id = djbHash(url);
+	var short_url = req.protocol + "://" + req.hostname + "/" + url_id;
 	
 	ShortURLs.findOneAndUpdate(
-		{short_url: url_id},
-		{original_url: url, short_url: url_id},
+		{_id: url_id},
+		{original_url: url, short_url: short_url},
 		{fields: "original_url short_url -_id", "new": true, upsert: true, runValidators: true},
 		function(err, doc){
 			if (err)

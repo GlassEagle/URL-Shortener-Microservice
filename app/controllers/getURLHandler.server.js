@@ -4,7 +4,7 @@ var ShortURLs = require("../models/shortURLs.js");
 
 function getURLHandler(req, res){
     
-    ShortURLs.findOne({short_url: req.params.url_id}, function(err, shortURL){
+    ShortURLs.findOne({_id: req.params.url_id}, function(err, shortURL){
         if(err){
             return res.json({error: err.toString()});
         }
