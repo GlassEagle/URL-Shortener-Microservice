@@ -6,6 +6,6 @@
 4. **User Story**:  I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
 5. **User Story**: If I pass an invalid URL that doesn't follow the valid http://www.example.com format, the JSON response will contain an error instead.
 6. **User Story**: When I visit that shortened URL, it will redirect me to my original link.
-7. **Pro Tip**: Checkout this wiki article for tips on integrating MongoDB on Heroku.
+7. **Pro Tip**: Checkout this [wiki article](https://github.com/FreeCodeCamp/FreeCodeCamp/wiki/Using-MongoDB-And-Deploying-To-Heroku/) for tips on integrating MongoDB on Heroku.
 8. Once you've finished implementing these user stories, click the "I've completed this challenge" button and enter the URLs for both your GitHub repository and your live app running on Heroku.
 9. You can get feedback on your project by sharing it with your friends on Facebook.
